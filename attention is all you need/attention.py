@@ -29,3 +29,13 @@ class SelfAttention(nn.Module):
         # queries shape: (N, query_len, heads, heads_dim)
         # keys shape: (N, key_len, heads, heads_dim)
         # energy shape: (N, heads, query_len, key_len)
+
+        if mask is not None:
+            energy = energy.masked_fill(mask == 0, float("-1e20"))
+
+        attention = torch.softmax(energy / (self.embed_size ** (1/2)), dim=3)
+
+        out = torch.einsum("nhql,nlhd-->nqhd", )
+        # attention shape: (N, heads, query_len, key_len)
+        # values shape: (N, value_len, heads, heads_dim)
+        # after multiplication (N, query_len, heads, heads_dim)
