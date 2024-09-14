@@ -1,1 +1,1 @@
-# Paper Implementations of SOTA and Foundation Models
+# Paper implementations of SOTA and Foundation Models
